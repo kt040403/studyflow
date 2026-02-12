@@ -26,6 +26,16 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
     return `${hours}h${mins}m`
   }
 
+  // データの最大値から適切な上限を計算（30分単位で切り上げ）
+  const maxMinutes = Math.max(...data.map(d => d.minutes), 30)
+  const yAxisMax = Math.ceil(maxMinutes / 30) * 30
+
+  // 30分単位の目盛りを生成
+  const ticks = []
+  for (let i = 0; i <= yAxisMax; i += 30) {
+    ticks.push(i)
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -47,6 +57,8 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
                 tick={{ fontSize: 12 }}
                 tickFormatter={(value) => formatMinutes(value)}
                 width={50}
+                domain={[0, yAxisMax]}
+                ticks={ticks}
               />
               <Tooltip
                 content={({ active, payload }) => {
