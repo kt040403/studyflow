@@ -1,0 +1,17 @@
+{
+  "name": "StudyFlow",
+  "short_name": "StudyFlow",
+  "description": "AI学習記録＆進捗管理アプリ",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
